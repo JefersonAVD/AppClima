@@ -1,12 +1,19 @@
 import { StatusBar } from 'expo-status-bar';
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import React , {useState} from 'react';
+import { StyleSheet, Text, View, Picker , Button } from 'react-native';
+import Main from './src/Components/main/main';
+//import Parent from './src/Components/TestingComp';
+
 
 export default function App() {
+  
+  const [veloVento,setVeloVento] = useState();
+
+  
+
   return (
     <View style={styles.container}>
-      <Text>Open up App.tsx to start working on your app!</Text>
-      <StatusBar style="auto" />
+      <Main/>
     </View>
   );
 }
