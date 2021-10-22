@@ -1,19 +1,27 @@
-import { StatusBar } from 'expo-status-bar';
 import React , {useState} from 'react';
 import { StyleSheet, Text, View, Picker , Button } from 'react-native';
 import Main from './src/Components/main/main';
-//import Parent from './src/Components/TestingComp';
+import Date from './src/Components/date'
 
 
 export default function App() {
-  
-  const [veloVento,setVeloVento] = useState();
-
-  
+  const [dados, setDados] = useState({
+    weather:[{description:'nada'}],
+    main:{
+      temp:0,
+      temp_max:0,
+      temp_min:0,
+    }
+  });
 
   return (
     <View style={styles.container}>
-      <Main/>
+      <Main
+        pickData={setDados}
+      />
+      <Date
+        data={dados}
+      />
     </View>
   );
 }

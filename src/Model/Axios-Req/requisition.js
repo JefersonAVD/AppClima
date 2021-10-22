@@ -13,7 +13,7 @@ export async function cityAquisition(param){
 
 
 
-export default async function wheatherAquisition (state){
+export default async function wheatherAquisition (city){
 
     const options = {
         headers:{
@@ -21,7 +21,7 @@ export default async function wheatherAquisition (state){
             'x-rapidapi-key': '5a19841a31msh1ca72b19d44d44dp10f494jsne47744f12d0c'
         },
         params: {
-            q: `${state},br`,
+            q: `${city},br`,
             lang: 'pt',
             units: 'metric',
         },
