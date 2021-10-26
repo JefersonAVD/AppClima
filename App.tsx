@@ -2,7 +2,7 @@ import React , {useState} from 'react';
 import { StyleSheet, Text, View, Picker , Button } from 'react-native';
 import Main from './src/Components/main/main';
 import Date from './src/Components/date'
-console.log(process.env.REACT_APP_WEATHER_KEY)
+
 
 export default function App() {
   const [dados, setDados] = useState({

@@ -1,41 +1,42 @@
-import React , {useState} from 'react'
+import React , {useState , createContext, useEffect} from 'react'
 import { View, Text, Button } from 'react-native'
-import State from '../States'
-import Aquisition ,{stateAquisition} from '../../Model/Axios-Req/requisition';
+import Location from '../Location'
+import Aquisition  from '../../Model/Axios-Req/requisition';
+
+export const locationContext = createContext();
 
 export default function main(props) {
 
-    const [Listaestados , setListaEstados] = useState([])
-    const [estado, setEstado] = useState();
+    const [States , setStates] = useState([]);
+    const [State, setState] = useState();
 
-    const [selectedCity, setSelectedCity] = useState();
     const [Cities, setCities] = useState([]);
+    const [City, setCity] = useState();
 
-    stateAquisition().then(resp=>{setListaEstados(resp.data)})
+    const Elements = {State,setState,City,setCity,States,setStates,Cities,setCities}
 
     return (
         <View>
-            <State
-                value={estado}
-                setValue={setEstado}
-                setNextValue={setCities}
-                estados={Listaestados}
-            />
-            <State
-                city = {true}
-                value={selectedCity}
-                setValue={setSelectedCity}
-                setNextValue={setCities}
-                estados={Cities}
-            />
-            <Button
-                title='Descubra o clima'
-                onPress={()=>{
-                Aquisition(selectedCity).then(resp=>{
-                    console.log(resp.data);
-                    props.pickData(resp.data)}
-                    )}}
-            />
+            <locationContext.Provider value = {Elements}>
+                <Location
+
+                />
+                <Location
+                    city={true}
+                />
+                <Button
+                    title='Descubra o clima'
+                    onPress={()=>{
+                        if(City){
+                    Aquisition(City).then(resp=>{
+                        console.log(resp.data);
+                        props.pickData(resp.data)}
+                        )}else{
+                            alert('Você não selecionou a cidade!')
+                        }
+                    }}
+                />
+            </locationContext.Provider>
         </View>
     )
 }

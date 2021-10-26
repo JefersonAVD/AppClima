@@ -1,14 +1,8 @@
 import Axios from 'axios';
 
-
-export async function stateAquisition(){
-
-   return await Axios.get('https://servicodados.ibge.gov.br/api/v1/localidades/estados/')
-}
-
-export async function cityAquisition(param){
-
-    return await Axios.get(`https://servicodados.ibge.gov.br/api/v1/localidades/estados/${param}/municipios`)
+export async function locationAquisition(param){
+    const end = param ? param +'/municipios' : ''
+    return await Axios.get('https://servicodados.ibge.gov.br/api/v1/localidades/estados/'+end)
 }
 
 
