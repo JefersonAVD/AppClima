@@ -29,7 +29,7 @@ export default function Location(props) {
                     }  
                 }}
                 >
-                <Picker.Item label={`--Selecione ${props.city? 'seu Estado--': 'sua Cidade--'}`}/>
+                <Picker.Item label={`--Selecione ${!props.city? 'seu Estado--': 'sua Cidade--'}`}/>
                 {
                 vari.map((Location,index) =>{
                 return !props.city ? <Picker.Item key={index} label={Location.nome} value={Location.sigla}/>:<Picker.Item key={index} label={Location.nome} value={Location.nome}/>

@@ -18,12 +18,10 @@ export default function main(props) {
     return (
         <View>
             <locationContext.Provider value = {Elements}>
-                <Location
-
-                />
-                <Location
-                    city={true}
-                />
+                <View>
+                <Location/>
+                <Location city={true}/>
+                </View>
                 <Button
                     title='Descubra o clima'
                     onPress={()=>{
