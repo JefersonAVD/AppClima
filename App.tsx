@@ -1,12 +1,12 @@
 import React , {useState} from 'react';
-import { StyleSheet, Text, View, Picker , Button } from 'react-native';
+import { StyleSheet, View } from 'react-native';
 import Main from './src/Components/main/main';
-import Date from './src/Components/date'
+import Date from './src/Components/date';
 
 
 export default function App() {
   const [dados, setDados] = useState({
-    weather:[{description:'nada'}],
+    weather:[{description:''}],
     main:{
       temp:0,
       temp_max:0,
@@ -29,8 +29,8 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: '#333',
     alignItems: 'center',
-    justifyContent: 'center',
+    justifyContent:'center'
   },
 });

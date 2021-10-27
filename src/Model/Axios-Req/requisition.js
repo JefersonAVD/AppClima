@@ -1,4 +1,5 @@
 import Axios from 'axios';
+import{API_HEAD,API_KEY}from '@env'
 
 export async function locationAquisition(param){
     const end = param ? param +'/municipios' : ''
@@ -11,8 +12,8 @@ export default async function wheatherAquisition (city){
 
     const options = {
         headers:{
-            'x-rapidapi-host': 'community-open-weather-map.p.rapidapi.com',
-            'x-rapidapi-key': '5a19841a31msh1ca72b19d44d44dp10f494jsne47744f12d0c'
+            'x-rapidapi-host': API_HEAD,
+            'x-rapidapi-key': API_KEY
         },
         params: {
             q: `${city},br`,
